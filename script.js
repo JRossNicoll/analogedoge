@@ -1,5 +1,4 @@
 const { useState, useEffect } = window.React;
-const { Github, Mail, Send, Twitter } = window.LucideReact;
 
 const TypewriterText = ({ text }) => {
  const [displayText, setDisplayText] = useState('');
@@ -143,7 +142,7 @@ const TokenomicsCard = () => {
  );
 };
 
-const SocialIcon = ({ Icon, href }) => window.React.createElement(
+const SocialIcon = ({ name, href }) => window.React.createElement(
  'a',
  {
    href: href,
@@ -151,7 +150,10 @@ const SocialIcon = ({ Icon, href }) => window.React.createElement(
    rel: "noopener noreferrer",
    className: 'social-icon'
  },
- window.React.createElement(Icon, { size: 20, className: 'text-green' })
+ window.React.createElement('i', { 
+   'data-feather': name,
+   className: 'text-green'
+ })
 );
 
 const TechWebsite = () => {
@@ -275,10 +277,10 @@ Running a full node is a service that volunteers in the network, called node ope
        window.React.createElement('footer', { className: 'footer' }, 
          window.React.createElement('div', { className: 'container-footer' }, [
            window.React.createElement('div', { className: 'social-icons' }, [
-             window.React.createElement(SocialIcon, { Icon: Send, href: "https://t.me/analogedoge" }),
-             window.React.createElement(SocialIcon, { Icon: Twitter, href: "https://twitter.com/analogedoge" }),
-             window.React.createElement(SocialIcon, { Icon: Github, href: "https://github.com/analogedoge" }),
-             window.React.createElement(SocialIcon, { Icon: Mail, href: "mailto:contact@analogedoge.com" })
+             window.React.createElement(SocialIcon, { name: 'send', href: "https://t.me/analogedoge" }),
+             window.React.createElement(SocialIcon, { name: 'twitter', href: "https://twitter.com/analogedoge" }),
+             window.React.createElement(SocialIcon, { name: 'github', href: "https://github.com/analogedoge" }),
+             window.React.createElement(SocialIcon, { name: 'mail', href: "mailto:contact@analogedoge.com" })
            ]),
            window.React.createElement('p', { className: 'copyright' },
              '©2014-2025 | The Analoge Doge Project Supported by the Dogecoin Foundation. All rights reserved.'
@@ -294,3 +296,5 @@ window.ReactDOM.render(
  window.React.createElement(TechWebsite),
  document.getElementById('root')
 );
+
+feather.replace();
