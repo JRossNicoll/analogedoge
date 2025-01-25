@@ -1,22 +1,11 @@
 const { useState, useEffect } = window.React;
+const { createIcon } = window.lucide;
 
-// Create icons with proper Lucide import
-const { createIcons, icons } = window.lucide;
-createIcons();
-
-const SocialIcon = ({ name, href }) => window.React.createElement(
-    'a',
-    {
-        href: href,
-        target: "_blank",
-        rel: "noopener noreferrer",
-        className: "bg-black/60 backdrop-blur-sm border border-green-500/30 rounded-lg p-2 hover:bg-green-500/10 transition-all"
-    },
-    window.React.createElement('i', { 
-        'data-lucide': name,
-        className: "text-green-400 w-5 h-5"
-    })
-);
+// Create icons
+const Send = createIcon('send');
+const Twitter = createIcon('twitter');
+const Github = createIcon('github');
+const Mail = createIcon('mail');
 
 const TypewriterText = ({ text }) => {
     const [displayText, setDisplayText] = useState('');
@@ -316,11 +305,11 @@ window.React.createElement('div', { className: "w-1/2 pr-8" },
                window.React.createElement('footer', { className: "border-t border-green-500/30 mt-16 py-6" },
                    window.React.createElement('div', { className: "container mx-auto px-8 flex flex-col items-center gap-4" }, [
                        window.React.createElement('div', { className: "flex gap-6" }, [
-    window.React.createElement(SocialIcon, { name: "send", href: "https://t.me/analogedoge" }),
-    window.React.createElement(SocialIcon, { name: "twitter", href: "https://twitter.com/analogedoge" }),
-    window.React.createElement(SocialIcon, { name: "github", href: "https://github.com/analogedoge" }),
-    window.React.createElement(SocialIcon, { name: "mail", href: "mailto:contact@analogedoge.com" })
-])
+                           window.React.createElement(SocialIcon, { Icon: Send, href: "https://t.me/analogedoge" }),
+                           window.React.createElement(SocialIcon, { Icon: Twitter, href: "https://twitter.com/analogedoge" }),
+                           window.React.createElement(SocialIcon, { Icon: Github, href: "https://github.com/analogedoge" }),
+                           window.React.createElement(SocialIcon, { Icon: Mail, href: "mailto:contact@analogedoge.com" })
+                       ]),
                        window.React.createElement('p', { className: "text-green-400 text-sm text-center" },
                            '©2014-2025 | The Analoge Doge Project Supported by the Dogecoin Foundation. All rights reserved.'
                        )
