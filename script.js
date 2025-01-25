@@ -1,282 +1,296 @@
-const { useState, useEffect } = React;
-const { Send, Twitter, Github, Mail } = LucideReact;
+const { useState, useEffect } = window.React;
+const { Github, Mail, Send, Twitter } = window.LucideReact;
 
 const TypewriterText = ({ text }) => {
-  const [displayText, setDisplayText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
+ const [displayText, setDisplayText] = useState('');
+ const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    if (currentIndex < text.length) {
-      const timer = setTimeout(() => {
-        setDisplayText(prev => prev + text[currentIndex]);
-        setCurrentIndex(currentIndex + 1);
-      }, 30);
-      return () => clearTimeout(timer);
-    }
-  }, [currentIndex, text]);
+ useEffect(() => {
+   if (currentIndex < text.length) {
+     const timer = setTimeout(() => {
+       setDisplayText(prev => prev + text[currentIndex]);
+       setCurrentIndex(currentIndex + 1);
+     }, 30);
+     return () => clearTimeout(timer);
+   }
+ }, [currentIndex, text]);
 
-  return (
-    <div style={{ fontFamily: "'VT323', monospace" }} className="text-green-400">
-      {displayText}
-      <span className="animate-pulse">_</span>
-    </div>
-  );
+ return window.React.createElement(
+   'div',
+   { style: { fontFamily: "'VT323', monospace" }, className: 'text-green' },
+   displayText,
+   window.React.createElement('span', { className: 'cursor' }, '_')
+ );
 };
 
-const DataCard = ({ title, value, change }) => (
-  <div className="bg-black/60 backdrop-blur-sm border border-green-500/30 rounded-lg p-3 flex flex-col h-28">
-    <h3 className="text-xs font-bold text-green-400 mb-2">{title}</h3>
-    <div className="text-white text-lg font-mono mb-1">{value}</div>
-    <div className={`text-xs ${change >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-      {change >= 0 ? '↑' : '↓'} {Math.abs(change)}%
-    </div>
-  </div>
+const DataCard = ({ title, value, change }) => window.React.createElement(
+ 'div',
+ { className: 'data-card' },
+ [
+   window.React.createElement('h3', { className: 'text-xs font-bold text-green mb-2' }, title),
+   window.React.createElement('div', { className: 'text-lg font-mono mb-1' }, value),
+   window.React.createElement('div', { className: `text-xs ${change >= 0 ? 'text-green' : 'text-red'}` },
+     `${change >= 0 ? '↑' : '↓'} ${Math.abs(change)}%`
+   )
+ ]
 );
 
-const StepCard = ({ number, title, description }) => (
-  <div className="bg-black/60 backdrop-blur-sm border border-green-500/30 rounded-lg p-4 flex items-start gap-4">
-    <div className="flex-shrink-0 w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 font-bold text-xl">
-      {number}
-    </div>
-    <div>
-      <h3 className="text-green-400 font-bold mb-2">{title}</h3>
-      <p className="text-white text-sm opacity-90">{description}</p>
-    </div>
-  </div>
+const StepCard = ({ number, title, description }) => window.React.createElement(
+ 'div',
+ { className: 'step-card' },
+ [
+   window.React.createElement('div', { className: 'number-circle' }, number),
+   window.React.createElement('div', {}, [
+     window.React.createElement('h3', { className: 'text-green font-bold mb-2' }, title),
+     window.React.createElement('p', { className: 'text-sm opacity-90' }, description)
+   ])
+ ]
 );
 
-const BuyStepCard = ({ number, title, description }) => (
-  <div className="bg-black/80 backdrop-blur-sm border border-green-500/30 rounded-lg p-4 flex items-start gap-4">
-    <div className="flex-shrink-0 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 font-bold text-sm">
-      {number}
-    </div>
-    <div>
-      <h3 className="text-green-400 font-bold text-sm mb-1">{title}</h3>
-      <p className="text-white text-xs opacity-90">{description}</p>
-    </div>
-  </div>
+const BuyStepCard = ({ number, title, description }) => window.React.createElement(
+ 'div',
+ { className: 'step-card small' },
+ [
+   window.React.createElement('div', { className: 'number-circle small' }, number),
+   window.React.createElement('div', {}, [
+     window.React.createElement('h3', { className: 'text-green font-bold text-sm mb-1' }, title),
+     window.React.createElement('p', { className: 'text-xs opacity-90' }, description)
+   ])
+ ]
 );
 
-const BuyGuide = () => (
-  <div className="mt-4 space-y-3">
-    <BuyStepCard 
-      number="1"
-      title="Connect Your Wallet"
-      description="Install MetaMask, Trust Wallet, or Phantom. Add ETH to your wallet for the purchase and gas fees."
-    />
-    <BuyStepCard 
-      number="2"
-      title="Visit Uniswap"
-      description="Go to app.uniswap.org. Connect your wallet and paste the $ANAL contract address."
-    />
-    <BuyStepCard 
-      number="3"
-      title="Swap ETH for $ANAL"
-      description="Enter the amount of ETH you want to swap. Set slippage to 5-10%. Click 'Swap' and confirm in your wallet."
-    />
-  </div>
+const BuyGuide = () => window.React.createElement(
+ 'div',
+ { className: 'mt-4 space-y-3' },
+ [
+   window.React.createElement(BuyStepCard, {
+     number: "1",
+     title: "Connect Your Wallet",
+     description: "Install MetaMask, Trust Wallet, or Phantom. Add ETH to your wallet for the purchase and gas fees."
+   }),
+   window.React.createElement(BuyStepCard, {
+     number: "2",
+     title: "Visit Uniswap",
+     description: "Go to app.uniswap.org. Connect your wallet and paste the $ANAL contract address."
+   }),
+   window.React.createElement(BuyStepCard, {
+     number: "3",
+     title: "Swap ETH for $ANAL",
+     description: "Enter the amount of ETH you want to swap. Set slippage to 5-10%. Click 'Swap' and confirm in your wallet."
+   })
+ ]
 );
 
 const TokenomicsCard = () => {
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
-  };
+ const copyToClipboard = (text) => {
+   navigator.clipboard.writeText(text);
+ };
 
-  return (
-    <div className="bg-black/80 backdrop-blur-sm border border-green-500/30 rounded-lg p-6 mt-4">
-      <div className="grid grid-cols-2 gap-4">
-        <div className="space-y-2">
-          <p className="text-green-400"><span className="font-bold">Name:</span> Analoge</p>
-          <p className="text-green-400"><span className="font-bold">Ticker:</span> $ANAL</p>
-          <p className="text-green-400"><span className="font-bold">Blockchain:</span> Ethereum</p>
-          <p 
-            className="text-green-400 cursor-pointer hover:text-green-300 transition-colors" 
-            onClick={() => copyToClipboard("0x000000000000000000000000000000000000dEaD")}
-            title="Click to copy"
-          >
-            <span className="font-bold">Contract:</span> 0x000...dEaD
-          </p>
-        </div>
-        <div className="space-y-2">
-          <p className="text-green-400"><span className="font-bold">Total Supply:</span> 10,000,000,000</p>
-          <p className="text-green-400"><span className="font-bold">Trading Fees:</span> Initial 5% Each Way</p>
-          <p className="text-green-400 text-sm">(Then will become 0%)</p>
-          <p 
-            className="text-green-400 cursor-pointer hover:text-green-300 transition-colors"
-            onClick={() => copyToClipboard("0x000000000000000000000000000000000000dEaD")}
-            title="Click to copy"
-          >
-            <span className="font-bold">Pair:</span> 0x000...dEaD
-          </p>
-        </div>
-      </div>
-      <div className="mt-4 pt-4 border-t border-green-500/30">
-        <p className="text-green-400"><span className="font-bold">DEX:</span> Decentralized Pair Created on Uniswap</p>
-      </div>
-    </div>
-  );
+ return window.React.createElement(
+   'div',
+   { className: 'tokenomics-card' },
+   [
+     window.React.createElement('div', { className: 'grid-2' }, [
+       window.React.createElement('div', { className: 'space-y-2' }, [
+         window.React.createElement('p', { className: 'text-green' }, [
+           window.React.createElement('span', { className: 'font-bold' }, 'Name: '),
+           'Analoge'
+         ]),
+         window.React.createElement('p', { className: 'text-green' }, [
+           window.React.createElement('span', { className: 'font-bold' }, 'Ticker: '),
+           '$ANAL'
+         ]),
+         window.React.createElement('p', { className: 'text-green' }, [
+           window.React.createElement('span', { className: 'font-bold' }, 'Blockchain: '),
+           'Ethereum'
+         ]),
+         window.React.createElement('p', {
+           className: 'text-green cursor-pointer',
+           onClick: () => copyToClipboard("0x000000000000000000000000000000000000dEaD"),
+           title: "Click to copy"
+         }, [
+           window.React.createElement('span', { className: 'font-bold' }, 'Contract: '),
+           '0x000...dEaD'
+         ])
+       ]),
+       window.React.createElement('div', { className: 'space-y-2' }, [
+         window.React.createElement('p', { className: 'text-green' }, [
+           window.React.createElement('span', { className: 'font-bold' }, 'Total Supply: '),
+           '10,000,000,000'
+         ]),
+         window.React.createElement('p', { className: 'text-green' }, [
+           window.React.createElement('span', { className: 'font-bold' }, 'Trading Fees: '),
+           'Initial 5% Each Way'
+         ]),
+         window.React.createElement('p', { className: 'text-green text-sm' }, '(Then will become 0%)'),
+         window.React.createElement('p', {
+           className: 'text-green cursor-pointer',
+           onClick: () => copyToClipboard("0x000000000000000000000000000000000000dEaD"),
+           title: "Click to copy"
+         }, [
+           window.React.createElement('span', { className: 'font-bold' }, 'Pair: '),
+           '0x000...dEaD'
+         ])
+       ])
+     ]),
+     window.React.createElement('div', { className: 'mt-4 pt-4 border-t' }, 
+       window.React.createElement('p', { className: 'text-green' }, [
+         window.React.createElement('span', { className: 'font-bold' }, 'DEX: '),
+         'Decentralized Pair Created on Uniswap'
+       ])
+     )
+   ]
+ );
 };
 
-const SocialIcon = ({ Icon, href }) => (
-  <a 
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer" 
-    className="bg-black/60 backdrop-blur-sm border border-green-500/30 rounded-lg p-2 hover:bg-green-500/10 transition-all"
-  >
-    <Icon size={20} className="text-green-400" />
-  </a>
+const SocialIcon = ({ Icon, href }) => window.React.createElement(
+ 'a',
+ {
+   href: href,
+   target: "_blank",
+   rel: "noopener noreferrer",
+   className: 'social-icon'
+ },
+ window.React.createElement(Icon, { size: 20, className: 'text-green' })
 );
 
 const TechWebsite = () => {
-  const [showTokenomics, setShowTokenomics] = useState(false);
-  const [showBuyGuide, setShowBuyGuide] = useState(false);
-  const [data, setData] = useState([
-    { title: 'Network Hash Rate', value: '0 TH/s', change: 0 },
-    { title: 'Block Height', value: '0', change: 0 },
-    { title: 'Nodes Online', value: '0', change: 0 },
-    { title: 'GPU Temp', value: '0°C', change: 0 },
-    { title: 'Memory Usage', value: '0 GB', change: 0 },
-    { title: 'Avg Block Time', value: '0s', change: 0 }
-  ]);
+ const [showTokenomics, setShowTokenomics] = useState(false);
+ const [showBuyGuide, setShowBuyGuide] = useState(false);
+ const [data, setData] = useState([
+   { title: 'Network Hash Rate', value: '0 TH/s', change: 0 },
+   { title: 'Block Height', value: '0', change: 0 },
+   { title: 'Nodes Online', value: '0', change: 0 },
+   { title: 'GPU Temp', value: '0°C', change: 0 },
+   { title: 'Memory Usage', value: '0 GB', change: 0 },
+   { title: 'Avg Block Time', value: '0s', change: 0 }
+ ]);
 
-  const steps = [
-    {
-      title: "System Requirements",
-      description: "Ensure your system has: 60GB+ storage space, 2GB RAM, stable internet connection with unlimited data, and ability to run 24/7."
-    },
-    {
-      title: "Download & Install",
-      description: "Download Analoge Doge from dogecoin.com or Github. Install like any standard application for your operating system (Windows, macOS, or Linux)."
-    },
-    {
-      title: "Initial Sync",
-      description: "Start Analoge Doge and wait for initial blockchain sync. This may take 24+ hours depending on your connection. The node downloads the complete blockchain history."
-    },
-    {
-      title: "Network Configuration",
-      description: "Open port 22556 in your router/firewall to allow incoming connections. This enables your node to fully participate in the Dogecoin network by accepting connections from other nodes."
-    }
-  ];
+ const steps = [
+   {
+     title: "System Requirements",
+     description: "Ensure your system has: 60GB+ storage space, 2GB RAM, stable internet connection with unlimited data, and ability to run 24/7."
+   },
+   {
+     title: "Download & Install",
+     description: "Download Analoge Doge from dogecoin.com or Github. Install like any standard application for your operating system (Windows, macOS, or Linux)."
+   },
+   {
+     title: "Initial Sync",
+     description: "Start Analoge Doge and wait for initial blockchain sync. This may take 24+ hours depending on your connection. The node downloads the complete blockchain history."
+   },
+   {
+     title: "Network Configuration",
+     description: "Open port 22556 in your router/firewall to allow incoming connections. This enables your node to fully participate in the Dogecoin network by accepting connections from other nodes."
+   }
+ ];
 
-  const terminalText = `The Dogecoin network is a peer-to-peer payment network consisting of thousands of computers called nodes. Each of these nodes is running specialized software. Analoge Doge, is the software more commonly used to run a Dogecoin node. It can be downloaded from the official Dogecoin.com website and directly from the Github repository.
+ const terminalText = `The Dogecoin network is a peer-to-peer payment network consisting of thousands of computers called nodes. Each of these nodes is running specialized software. Analoge Doge, is the software more commonly used to run a Dogecoin node. It can be downloaded from the official Dogecoin.com website and directly from the Github repository.
 
 Running a full node is a service that volunteers in the network, called node operators, provide to the Dogecoin community.`;
 
-  useEffect(() => {
-    const updateData = () => {
-      setData(prev => prev.map(item => ({
-        ...item,
-        value: generateRandomValue(item.title),
-        change: (Math.random() * 10 - 5).toFixed(2)
-      })));
-    };
+ useEffect(() => {
+   const updateData = () => {
+     setData(prev => prev.map(item => ({
+       ...item,
+       value: generateRandomValue(item.title),
+       change: (Math.random() * 10 - 5).toFixed(2)
+     })));
+   };
 
-    const interval = setInterval(updateData, 3000);
-    return () => clearInterval(interval);
-  }, []);
+   const interval = setInterval(updateData, 3000);
+   return () => clearInterval(interval);
+ }, []);
 
-  const generateRandomValue = (title) => {
-    switch(title) {
-      case 'Network Hash Rate':
-        return `${(Math.random() * 500 + 1000).toFixed(0)} TH/s`;
-      case 'Block Height':
-        return (Math.random() * 1000000 + 4000000).toFixed(0);
-      case 'Nodes Online':
-        return (Math.random() * 500 + 1000).toFixed(0);
-      case 'GPU Temp':
-        return `${(Math.random() * 15 + 65).toFixed(1)}°C`;
-      case 'Memory Usage':
-        return `${(Math.random() * 4 + 8).toFixed(1)} GB`;
-      case 'Avg Block Time':
-        return `${(Math.random() * 2 + 58).toFixed(1)}s`;
-      default:
-        return '0';
-    }
-  };
+ const generateRandomValue = (title) => {
+   switch(title) {
+     case 'Network Hash Rate':
+       return `${(Math.random() * 500 + 1000).toFixed(0)} TH/s`;
+     case 'Block Height':
+       return (Math.random() * 1000000 + 4000000).toFixed(0);
+     case 'Nodes Online':
+       return (Math.random() * 500 + 1000).toFixed(0);
+     case 'GPU Temp':
+       return `${(Math.random() * 15 + 65).toFixed(1)}°C`;
+     case 'Memory Usage':
+       return `${(Math.random() * 4 + 8).toFixed(1)} GB`;
+     case 'Avg Block Time':
+       return `${(Math.random() * 2 + 58).toFixed(1)}s`;
+     default:
+       return '0';
+   }
+ };
 
-  return (
-    <div className="relative min-h-screen bg-black overflow-hidden flex flex-col">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-900/30 to-black animate-pulse" />
-        <div className="absolute -inset-[500px] blur-3xl">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-green-500/20 rounded-full animate-pulse" />
-          <div className="absolute top-3/4 right-1/4 w-48 h-48 bg-green-600/20 rounded-full animate-pulse delay-700" />
-        </div>
-      </div>
+ return window.React.createElement(
+   'div',
+   { className: 'container' },
+   [
+     window.React.createElement('div', { className: 'bg-gradient' }),
+     window.React.createElement('div', { className: 'content' }, [
+       window.React.createElement('h1', { className: 'text-3xl font-bold text-green mb-8 text-center' }, 'ANALOGE DOGE'),
+       
+       window.React.createElement('div', { className: 'grid-2 gap-8 mb-16' }, [
+         window.React.createElement('div', { className: 'pl-8' }, [
+           window.React.createElement('h2', { className: 'text-green text-xl font-mono mb-4' }, 'What is Analoge Doge?'),
+           window.React.createElement(TypewriterText, { text: terminalText }),
+           window.React.createElement('h2', { className: 'text-green text-xl font-mono mb-4 mt-8' }, 'What is Analoge Coin?'),
+           window.React.createElement(TypewriterText, { text: "Analoge Coin ($ANAL) is our native ERC20 token designed to incentivize and reward node operators in the Dogecoin network. By integrating blockchain interoperability between Ethereum and Dogecoin networks, node operators can earn $ANAL tokens for maintaining network stability and providing essential infrastructure. This creates a sustainable ecosystem where network participants are directly rewarded for their contributions." }),
+           window.React.createElement('div', { className: 'flex gap-4' }, [
+             window.React.createElement('button', {
+               onClick: () => setShowTokenomics(!showTokenomics),
+               className: 'button'
+             }, showTokenomics ? 'Hide Tokenomics' : 'Show Tokenomics'),
+             window.React.createElement('button', {
+               onClick: () => setShowBuyGuide(!showBuyGuide),
+               className: 'button'
+             }, showBuyGuide ? 'Hide Guide' : 'How to Get Started')
+           ]),
+           showTokenomics && window.React.createElement(TokenomicsCard),
+           showBuyGuide && window.React.createElement(BuyGuide)
+         ]),
+         
+         window.React.createElement('div', { className: 'pr-8' },
+           window.React.createElement('div', { className: 'grid-2 gap-4' },
+             data.map((item, index) => 
+               window.React.createElement(DataCard, { key: index, ...item })
+             )
+           )
+         )
+       ]),
 
-      <div className="relative z-10 pt-8 flex-1">
-        <h1 className="text-3xl font-bold text-green-400 mb-8 tracking-wider border-b-2 border-green-500 pb-2 text-center">
-          ANALOGE DOGE
-        </h1>
+       window.React.createElement('div', { className: 'px-8' }, [
+         window.React.createElement('h2', { className: 'text-green text-2xl font-mono mb-6 text-center' }, 'Run Your Own Node'),
+         window.React.createElement('div', { className: 'grid-2 gap-6 max-w-5xl mx-auto' },
+           steps.map((step, index) =>
+             window.React.createElement(StepCard, {
+               key: index,
+               number: index + 1,
+               title: step.title,
+               description: step.description
+             })
+           )
+         )
+       ]),
 
-        <div className="flex gap-8 mb-16">
-          <div className="w-1/2 pl-8">
-            <h2 className="text-green-400 text-xl font-mono mb-4">What is Analoge Doge?</h2>
-            <div className="text-sm mb-8">
-              <TypewriterText text={terminalText} />
-            </div>
-            <h2 className="text-green-400 text-xl font-mono mb-4">What is Analoge Coin?</h2>
-            <div className="text-sm">
-              <TypewriterText text="Analoge Coin ($ANAL) is our native ERC20 token designed to incentivize and reward node operators in the Dogecoin network. By integrating blockchain interoperability between Ethereum and Dogecoin networks, node operators can earn $ANAL tokens for maintaining network stability and providing essential infrastructure. This creates a sustainable ecosystem where network participants are directly rewarded for their contributions." />
-            </div>
-            <div className="flex gap-4">
-              <button 
-                onClick={() => setShowTokenomics(!showTokenomics)}
-                className="mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg hover:bg-green-500/10 transition-colors"
-              >
-                {showTokenomics ? 'Hide Tokenomics' : 'Show Tokenomics'}
-              </button>
-              <button 
-                onClick={() => setShowBuyGuide(!showBuyGuide)}
-                className="mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg hover:bg-green-500/10 transition-colors"
-              >
-                {showBuyGuide ? 'Hide Guide' : 'How to Get Started'}
-              </button>
-            </div>
-            {showTokenomics && <TokenomicsCard />}
-            {showBuyGuide && <BuyGuide />}
-          </div>
-          
-          <div className="w-1/2 pr-8">
-            <div className="grid grid-cols-2 gap-4">
-              {data.map((item, index) => (
-                <DataCard key={index} {...item} />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="px-8">
-          <h2 className="text-green-400 text-2xl font-mono mb-6 text-center">Run Your Own Node</h2>
-          <div className="grid grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {steps.map((step, index) => (
-              <StepCard 
-                key={index}
-                number={index + 1}
-                title={step.title}
-                description={step.description}
-              />
-            ))}
-          </div>
-        </div>
-
-        <footer className="border-t border-green-500/30 mt-16 py-6">
-          <div className="container mx-auto px-8 flex flex-col items-center gap-4">
-            <div className="flex gap-6">
-              <SocialIcon Icon={Send} href="https://t.me/analogedoge" />
-              <SocialIcon Icon={Twitter} href="https://twitter.com/analogedoge" />
-              <SocialIcon Icon={Github} href="https://github.com/analogedoge" />
-              <SocialIcon Icon={Mail} href="mailto:contact@analogedoge.com" />
-            </div>
-            <p className="text-green-400 text-sm text-center">
-              ©2014-2025 | The Analoge Doge Project Supported by the Dogecoin Foundation. All rights reserved.
-            </p>
-          </div>
-        </footer>
-      </div>
-    </div>
-  );
+       window.React.createElement('footer', { className: 'footer' }, 
+         window.React.createElement('div', { className: 'container-footer' }, [
+           window.React.createElement('div', { className: 'social-icons' }, [
+             window.React.createElement(SocialIcon, { Icon: Send, href: "https://t.me/analogedoge" }),
+             window.React.createElement(SocialIcon, { Icon: Twitter, href: "https://twitter.com/analogedoge" }),
+             window.React.createElement(SocialIcon, { Icon: Github, href: "https://github.com/analogedoge" }),
+             window.React.createElement(SocialIcon, { Icon: Mail, href: "mailto:contact@analogedoge.com" })
+           ]),
+           window.React.createElement('p', { className: 'copyright' },
+             '©2014-2025 | The Analoge Doge Project Supported by the Dogecoin Foundation. All rights reserved.'
+           )
+         ])
+       )
+     ])
+   ]
+ );
 };
 
-ReactDOM.render(<TechWebsite />, document.getElementById('root'));
+window.ReactDOM.render(
+ window.React.createElement(TechWebsite),
+ document.getElementById('root')
+);
