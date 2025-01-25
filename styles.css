@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    font-family: 'VT323', monospace;
+    color: #4ade80;
+}
+
+#root {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.green-glow {
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.2);
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+}
+
+.backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+}
+
+.from-green-900\/30 {
+    background-image: linear-gradient(to bottom right, rgba(20, 83, 45, 0.3), transparent);
+}
+
+.delay-700 {
+    animation-delay: 700ms;
+}
