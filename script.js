@@ -203,11 +203,27 @@ Running a full node is a volunteer service that helps maintain the network's sec
             ),
             React.createElement('footer', { className: 'footer' }, [
                 React.createElement('div', { className: 'social-icons' }, [
-                    React.createElement('a', { href: 'https://t.me/analogedoge', className: 'social-link' }, '💬'),
-                    React.createElement('a', { href: 'https://twitter.com/analogedoge', className: 'social-link' }, '🐦'),
-                    React.createElement('a', { href: 'https://github.com/analogedoge', className: 'social-link' }, '💻'),
-                    React.createElement('a', { href: 'mailto:contact@analogedoge.com', className: 'social-link' }, '✉️')
-                ]),
+        React.createElement('a', { 
+            href: 'https://t.me/analogedoge', 
+            className: 'social-link',
+            dangerouslySetInnerHTML: { __html: feather.icons.send.toSvg() }
+        }),
+        React.createElement('a', { 
+            href: 'https://twitter.com/analogedoge', 
+            className: 'social-link',
+            dangerouslySetInnerHTML: { __html: feather.icons.twitter.toSvg() }
+        }),
+        React.createElement('a', { 
+            href: 'https://github.com/analogedoge', 
+            className: 'social-link',
+            dangerouslySetInnerHTML: { __html: feather.icons.github.toSvg() }
+        }),
+        React.createElement('a', { 
+            href: 'mailto:contact@analogedoge.com', 
+            className: 'social-link',
+            dangerouslySetInnerHTML: { __html: feather.icons.mail.toSvg() }
+        })
+    ]),
                 React.createElement('p', { className: 'text-green' },
                     '©2014-2025 | The Analoge Doge Project Supported by the Dogecoin Foundation. All rights reserved.'
                 )
