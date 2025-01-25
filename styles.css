@@ -1,41 +1,96 @@
+/* Base styles */
 body {
     margin: 0;
-    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background: black;
-    font-family: 'VT323', monospace;
-    color: #4ade80;
-}
-
-#root {
+    color: white;
     min-height: 100vh;
-    width: 100%;
 }
 
-.green-glow {
-    box-shadow: 0 0 10px rgba(74, 222, 128, 0.2);
+.vt323 {
+    font-family: 'VT323', monospace;
 }
 
-.animate-pulse {
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+/* Layout */
+.container {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: .5;
-    }
+.bg-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.3), black);
+    animation: pulse 2s infinite;
 }
 
-.backdrop-blur-sm {
+.content {
+    position: relative;
+    z-index: 10;
+    padding-top: 2rem;
+}
+
+/* Components */
+.data-card {
+    background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(4px);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    height: 7rem;
 }
 
-.from-green-900\/30 {
-    background-image: linear-gradient(to bottom right, rgba(20, 83, 45, 0.3), transparent);
+.step-card {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
 }
 
-.delay-700 {
-    animation-delay: 700ms;
+/* Animations */
+@keyframes pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Grid layouts */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+/* Typography */
+.text-green {
+    color: #10B981;
+}
+
+/* Buttons and interactive elements */
+.button {
+    background: transparent;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #10B981;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background: rgba(16, 185, 129, 0.1);
 }
