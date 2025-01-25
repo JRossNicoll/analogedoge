@@ -24,7 +24,7 @@ const DataCard = ({ title, value, change }) => {
     return React.createElement('div', { className: 'card data-card' }, [
         React.createElement('h3', { className: 'text-green mb-4' }, title),
         React.createElement('div', { className: 'text-xl mb-4' }, value),
-        React.createElement('div', { className: text-green },
+        React.createElement('div', { className: 'text-green' },  // <-- Fixed
             `${change >= 0 ? '↑' : '↓'} ${Math.abs(change)}%`
         )
     ]);
