@@ -6,7 +6,5 @@ const TechWebsite = () => {
     );
 };
 
-window.ReactDOM.render(
-    window.React.createElement(TechWebsite),
-    document.getElementById('root')
-);
+const root = window.ReactDOM.createRoot(document.getElementById('root'));
+root.render(window.React.createElement(TechWebsite));
