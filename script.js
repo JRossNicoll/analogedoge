@@ -260,14 +260,14 @@ Running a full node is a service that volunteers in the network, called node ope
                             window.React.createElement('button',
                                 {
                                     onClick: () => setShowTokenomics(!showTokenomics),
-                                    className: ""mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors""
+                                    className: "mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors"
                                 },
                                 showTokenomics ? 'Hide Tokenomics' : 'Show Tokenomics'
                             ),
                             window.React.createElement('button',
                                 {
                                     onClick: () => setShowBuyGuide(!showBuyGuide),
-                                    className: ""mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors""
+                                    className: "mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors"
                                 },
                                 showBuyGuide ? 'Hide Guide' : 'How to Get Started'
                             )
