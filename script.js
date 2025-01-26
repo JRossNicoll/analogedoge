@@ -90,7 +90,7 @@ const BuyGuide = () => window.React.createElement(
        window.React.createElement(BuyStepCard, {
            number: "2",
            title: "Visit Uniswap",
-           description: "Go to app.uniswap.org. Connect your wallet and paste the $ANAL contract address."
+           description: "Go to app.uniswap.org. Connect your wallet and paste the $ANAL contract address (0x52056E377FC9699695ABBe83AFFE2269dDDC0493)."
        }),
        window.React.createElement(BuyStepCard, {
            number: "3",
