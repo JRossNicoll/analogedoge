@@ -128,7 +128,7 @@ const TokenomicsCard = () => {
                        onClick: () => copyToClipboard("0x52056E377FC9699695ABBe83AFFE2269dDDC0493"),
                        title: "Click to copy"
                    }, [
-                       window.React.createElement('span', { className: "font-bold" }, 'Contract: '),
+                       window.React.createElement('span', { className: "font-bold" }, 'Contract: (Click to Copy): '),
                        '0x520...0493'
                    ])
                ]),
