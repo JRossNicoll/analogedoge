@@ -46,123 +46,119 @@ const SocialIcon = ({ name, href }) => window.React.createElement(
         className: `fa-solid fa-${name} text-green-400`,
         style: { width: '20px', height: '20px' }
     })
-);
-
-const StepCard = ({ number, title, description }) => window.React.createElement(
-   'div', 
-   { className: "bg-black/60 backdrop-blur-sm border border-green-500/30 rounded-lg p-4 flex items-start gap-4" },
-   [
-       window.React.createElement('div',
-           { className: "flex-shrink-0 w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 font-bold text-xl" },
-           number
-       ),
-       window.React.createElement('div', {}, [
-           window.React.createElement('h3', { className: "text-green-400 font-bold mb-2" }, title),
-           window.React.createElement('p', { className: "text-white text-sm opacity-90" }, description)
-       ])
-   ]
+);const StepCard = ({ number, title, description }) => window.React.createElement(
+    'div',
+    { className: "bg-black/60 backdrop-blur-sm border border-green-500/30 rounded-lg p-4 flex items-start gap-4" },
+    [
+        window.React.createElement('div',
+            { className: "flex-shrink-0 w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 font-bold text-xl" },
+            number
+        ),
+        window.React.createElement('div', {}, [
+            window.React.createElement('h3', { className: "text-green-400 font-bold mb-2" }, title),
+            window.React.createElement('p', { className: "text-white text-sm opacity-90" }, description)
+        ])
+    ]
 );
 
 const BuyStepCard = ({ number, title, description }) => window.React.createElement(
-   'div',
-   { className: "bg-black/80 backdrop-blur-sm border border-green-500/30 rounded-lg p-4 flex items-start gap-4" },
-   [
-       window.React.createElement('div',
-           { className: "flex-shrink-0 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 font-bold text-sm" },
-           number
-       ),
-       window.React.createElement('div', {}, [
-           window.React.createElement('h3', { className: "text-green-400 font-bold text-sm mb-1" }, title),
-           window.React.createElement('p', { className: "text-white text-xs opacity-90" }, description)
-       ])
-   ]
+    'div',
+    { className: "bg-black/80 backdrop-blur-sm border border-green-500/30 rounded-lg p-4 flex items-start gap-4" },
+    [
+        window.React.createElement('div',
+            { className: "flex-shrink-0 w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 font-bold text-sm" },
+            number
+        ),
+        window.React.createElement('div', {}, [
+            window.React.createElement('h3', { className: "text-green-400 font-bold text-sm mb-1" }, title),
+            window.React.createElement('p', { className: "text-white text-xs opacity-90" }, description)
+        ])
+    ]
 );
 
 const BuyGuide = () => window.React.createElement(
-   'div',
-   { className: "mt-4 space-y-3" },
-   [
-       window.React.createElement(BuyStepCard, {
-           number: "1",
-           title: "Connect Your Wallet",
-           description: "Install MetaMask, Trust Wallet, or Phantom. Add ETH to your wallet for the purchase and gas fees."
-       }),
-       window.React.createElement(BuyStepCard, {
-           number: "2",
-           title: "Visit Uniswap",
-           description: "Go to app.uniswap.org. Connect your wallet and paste the $ANAL contract address."
-       }),
-       window.React.createElement(BuyStepCard, {
-           number: "3",
-           title: "Swap ETH for $ANAL",
-           description: "Enter the amount of ETH you want to swap. Set slippage to 5-10%. Click 'Swap' and confirm in your wallet."
-       })
-   ]
+    'div',
+    { className: "mt-4 space-y-3" },
+    [
+        window.React.createElement(BuyStepCard, {
+            number: "1",
+            title: "Connect Your Wallet",
+            description: "Install MetaMask, Trust Wallet, or Phantom. Add ETH to your wallet for the purchase and gas fees."
+        }),
+        window.React.createElement(BuyStepCard, {
+            number: "2",
+            title: "Visit Uniswap",
+            description: "Go to app.uniswap.org. Connect your wallet and paste the $ANAL contract address."
+        }),
+        window.React.createElement(BuyStepCard, {
+            number: "3",
+            title: "Swap ETH for $ANAL",
+            description: "Enter the amount of ETH you want to swap. Set slippage to 5-10%. Click 'Swap' and confirm in your wallet."
+        })
+    ]
 );
 
 const TokenomicsCard = () => {
-   const copyToClipboard = (text) => {
-       navigator.clipboard.writeText(text);
-   };
+    const copyToClipboard = (text) => {
+        navigator.clipboard.writeText(text);
+    };
 
-   return window.React.createElement(
-       'div',
-       { className: "bg-black/80 backdrop-blur-sm border border-green-500/30 rounded-lg p-6 mt-4" },
-       [
-           window.React.createElement('div', { className: "grid grid-cols-2 gap-4" }, [
-               window.React.createElement('div', { className: "space-y-2" }, [
-                   window.React.createElement('p', { className: "text-green-400" }, [
-                       window.React.createElement('span', { className: "font-bold" }, 'Name: '),
-                       'Analoge'
-                   ]),
-                   window.React.createElement('p', { className: "text-green-400" }, [
-                       window.React.createElement('span', { className: "font-bold" }, 'Ticker: '),
-                       '$ANAL'
-                   ]),
-                   window.React.createElement('p', { className: "text-green-400" }, [
-                       window.React.createElement('span', { className: "font-bold" }, 'Blockchain: '),
-                       'Ethereum'
-                   ]),
-                   window.React.createElement('p', {
-                       className: "text-green-400 cursor-pointer hover:text-green-300 transition-colors",
-                       onClick: () => copyToClipboard("0x000000000000000000000000000000000000dEaD"),
-                       title: "Click to copy"
-                   }, [
-                       window.React.createElement('span', { className: "font-bold" }, 'Contract: '),
-                       '0x000...dEaD'
-                   ])
-               ]),
-               window.React.createElement('div', { className: "space-y-2" }, [
-                   window.React.createElement('p', { className: "text-green-400" }, [
-                       window.React.createElement('span', { className: "font-bold" }, 'Total Supply: '),
-                       '10,000,000,000'
-                   ]),
-                   window.React.createElement('p', { className: "text-green-400" }, [
-                       window.React.createElement('span', { className: "font-bold" }, 'Trading Fees: '),
-                       'Initial 5% Each Way'
-                   ]),
-                   window.React.createElement('p', { className: "text-green-400 text-sm" }, '(Then will become 0%)'),
-                   window.React.createElement('p', {
-                       className: "text-green-400 cursor-pointer hover:text-green-300 transition-colors",
-                       onClick: () => copyToClipboard("0x000000000000000000000000000000000000dEaD"),
-                       title: "Click to copy"
-                   }, [
-                       window.React.createElement('span', { className: "font-bold" }, 'Pair: '),
-                       '0x000...dEaD'
-                   ])
-               ])
-           ]),
-           window.React.createElement('div', { className: "mt-4 pt-4 border-t border-green-500/30" },
-               window.React.createElement('p', { className: "text-green-400" }, [
-                   window.React.createElement('span', { className: "font-bold" }, 'DEX: '),
-                   'Decentralized Pair Created on Uniswap'
-               ])
-           )
-       ]
-   );
-};
-
-const TechWebsite = () => {
+    return window.React.createElement(
+        'div',
+        { className: "bg-black/80 backdrop-blur-sm border border-green-500/30 rounded-lg p-6 mt-4" },
+        [
+            window.React.createElement('div', { className: "grid grid-cols-2 gap-4" }, [
+                window.React.createElement('div', { className: "space-y-2" }, [
+                    window.React.createElement('p', { className: "text-green-400" }, [
+                        window.React.createElement('span', { className: "font-bold" }, 'Name: '),
+                        'Analoge'
+                    ]),
+                    window.React.createElement('p', { className: "text-green-400" }, [
+                        window.React.createElement('span', { className: "font-bold" }, 'Ticker: '),
+                        '$ANAL'
+                    ]),
+                    window.React.createElement('p', { className: "text-green-400" }, [
+                        window.React.createElement('span', { className: "font-bold" }, 'Blockchain: '),
+                        'Ethereum'
+                    ]),
+                    window.React.createElement('p', {
+                        className: "text-green-400 cursor-pointer hover:text-green-300 transition-colors",
+                        onClick: () => copyToClipboard("0x000000000000000000000000000000000000dEaD"),
+                        title: "Click to copy"
+                    }, [
+                        window.React.createElement('span', { className: "font-bold" }, 'Contract: '),
+                        '0x000...dEaD'
+                    ])
+                ]),
+                window.React.createElement('div', { className: "space-y-2" }, [
+                    window.React.createElement('p', { className: "text-green-400" }, [
+                        window.React.createElement('span', { className: "font-bold" }, 'Total Supply: '),
+                        '10,000,000,000'
+                    ]),
+                    window.React.createElement('p', { className: "text-green-400" }, [
+                        window.React.createElement('span', { className: "font-bold" }, 'Trading Fees: '),
+                        'Initial 5% Each Way'
+                    ]),
+                    window.React.createElement('p', { className: "text-green-400 text-sm" }, '(Then will become 0%)'),
+                    window.React.createElement('p', {
+                        className: "text-green-400 cursor-pointer hover:text-green-300 transition-colors",
+                        onClick: () => copyToClipboard("0x000000000000000000000000000000000000dEaD"),
+                        title: "Click to copy"
+                    }, [
+                        window.React.createElement('span', { className: "font-bold" }, 'Pair: '),
+                        '0x000...dEaD'
+                    ])
+                ])
+            ]),
+            window.React.createElement('div', { className: "mt-4 pt-4 border-t border-green-500/30" },
+                window.React.createElement('p', { className: "text-green-400" }, [
+                    window.React.createElement('span', { className: "font-bold" }, 'DEX: '),
+                    'Decentralized Pair Created on Uniswap'
+                ])
+            )
+        ]
+    );
+};const TechWebsite = () => {
     const [showTokenomics, setShowTokenomics] = useState(false);
     const [showBuyGuide, setShowBuyGuide] = useState(false);
     const [data, setData] = useState([
@@ -227,9 +223,7 @@ Running a full node is a service that volunteers in the network, called node ope
             default:
                 return '0';
         }
-    };
-
-    return window.React.createElement(
+    };return window.React.createElement(
         'div',
         { className: "relative min-h-screen bg-black overflow-hidden flex flex-col" },
         [
