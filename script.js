@@ -125,11 +125,11 @@ const TokenomicsCard = () => {
                    ]),
                    window.React.createElement('p', {
                        className: "text-green-400 cursor-pointer hover:text-green-300 transition-colors",
-                       onClick: () => copyToClipboard("0x000000000000000000000000000000000000dEaD"),
+                       onClick: () => copyToClipboard("0x52056E377FC9699695ABBe83AFFE2269dDDC0493"),
                        title: "Click to copy"
                    }, [
                        window.React.createElement('span', { className: "font-bold" }, 'Contract: '),
-                       '0x000...dEaD'
+                       '0x520...0493'
                    ])
                ]),
                window.React.createElement('div', { className: "space-y-2" }, [
@@ -144,11 +144,11 @@ const TokenomicsCard = () => {
                    window.React.createElement('p', { className: "text-green-400 text-sm" }, '(Then will become 0%)'),
                    window.React.createElement('p', {
                        className: "text-green-400 cursor-pointer hover:text-green-300 transition-colors",
-                       onClick: () => copyToClipboard("0x000000000000000000000000000000000000dEaD"),
+                       onClick: () => copyToClipboard("0x52056E377FC9699695ABBe83AFFE2269dDDC0493"),
                        title: "Click to copy"
                    }, [
                        window.React.createElement('span', { className: "font-bold" }, 'Pair: '),
-                       '0x000...dEaD'
+                       '0x520...0493'
                    ])
                ])
            ]),
