@@ -303,8 +303,8 @@ Running a full node is a service that volunteers in the network, called node ope
                     window.React.createElement('div', { className: "container mx-auto px-8 flex flex-col items-center gap-4" }, [
                         window.React.createElement('div', { className: "flex gap-6" }, [
                             window.React.createElement(SocialIcon, { name: "paper-plane", href: "https://t.me/analogedoge" }),
-                            window.React.createElement(SocialIcon, { name: "twitter", href: "https://twitter.com/analogedoge" }),
-                            window.React.createElement(SocialIcon, { name: "github", href: "https://github.com/analogedoge" }),
+                            window.React.createElement(SocialIcon, { name: "twitter", href: "https://x.com/Analogedogeapp" }),
+                            window.React.createElement(SocialIcon, { name: "github", href: "https://github.com/dogecoin/dogecoin/blob/master/doc/getting-started.md" }),
                             window.React.createElement(SocialIcon, { name: "envelope", href: "mailto:contact@analogedoge.com" })
                         ]),
                         window.React.createElement('p', { className: "text-green-400 text-sm text-center" },
