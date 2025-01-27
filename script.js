@@ -85,7 +85,7 @@ const BuyGuide = () => window.React.createElement(
        window.React.createElement(BuyStepCard, {
            number: "1",
            title: "Connect Your Wallet",
-           description: "Install MetaMask, Trust Wallet, or Phantom. Add ETH to your wallet for the purchase and gas fees."
+           description: "Install MetaMask, Trust Wallet, or Phantom. Add SOL to your wallet for the purchase and gas fees."
        }),
        window.React.createElement(BuyStepCard, {
            number: "2",
@@ -94,8 +94,8 @@ const BuyGuide = () => window.React.createElement(
        }),
        window.React.createElement(BuyStepCard, {
            number: "3",
-           title: "Swap ETH for $ANAL",
-           description: "Enter the amount of ETH you want to swap. Set slippage to 5-10%. Click 'Swap' and confirm in your wallet."
+           title: "Swap SOL for $ANAL",
+           description: "Enter the amount of SOL you want to swap. Set slippage to 5-10%. Click 'Swap' and confirm in your wallet."
        })
    ]
 );
@@ -121,7 +121,7 @@ const TokenomicsCard = () => {
                    ]),
                    window.React.createElement('p', { className: "text-green-400" }, [
                        window.React.createElement('span', { className: "font-bold" }, 'Blockchain: '),
-                       'Ethereum'
+                       'Solana'
                    ]),
                    window.React.createElement('p', {
                        className: "text-green-400 cursor-pointer hover:text-green-300 transition-colors",
@@ -254,7 +254,7 @@ Running a full node is a service that volunteers in the network, called node ope
                         ),
                         window.React.createElement('h2', { className: "text-green-400 text-xl font-mono mb-4" }, 'What is Analoge Coin?'),
                         window.React.createElement('div', { className: "text-sm" },
-                            window.React.createElement(TypewriterText, { text: "Analoge Coin ($ANAL) is our native ERC20 token designed to incentivize and reward node operators in the Dogecoin network. By integrating blockchain interoperability between Ethereum and Dogecoin networks, node operators can earn $ANAL tokens for maintaining network stability and providing essential infrastructure. This creates a sustainable ecosystem where network participants are directly rewarded for their contributions." })
+                            window.React.createElement(TypewriterText, { text: "Analoge Coin ($ANAL) is our native SOL token designed to incentivize and reward node operators in the Dogecoin network. By integrating blockchain interoperability between Solana and Dogecoin networks, node operators can earn $ANAL tokens for maintaining network stability and providing essential infrastructure. This creates a sustainable ecosystem where network participants are directly rewarded for their contributions." })
                         ),
                         window.React.createElement('div', { className: "flex gap-4" }, [
                             window.React.createElement('button',
