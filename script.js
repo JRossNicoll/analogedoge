@@ -314,11 +314,7 @@ window.React.createElement('footer', { className: "border-t border-green-500/30 
            '©2014-2025 | The Analoge Doge Project Supported by the Dogecoin Foundation. All rights reserved.'
        )
    ])
-)
-            ])
-        ]
-    );
-};
+)];
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(React.createElement(TechWebsite));
