@@ -163,7 +163,71 @@ const TokenomicsCard = () => {
 };
 
 const TechWebsite = () => {
-    // ... keep all your state and constants the same until the return statement ...
+    const [showTokenomics, setShowTokenomics] = useState(false);
+    const [showBuyGuide, setShowBuyGuide] = useState(false);
+    const [data, setData] = useState([
+        { title: 'Network Hash Rate', value: '0 TH/s', change: 0 },
+        { title: 'Block Height', value: '0', change: 0 },
+        { title: 'Nodes Online', value: '0', change: 0 },
+        { title: 'GPU Temp', value: '0°C', change: 0 },
+        { title: 'Memory Usage', value: '0 GB', change: 0 },
+        { title: 'Avg Block Time', value: '0s', change: 0 }
+    ]);
+
+    const steps = [
+        {
+            title: "System Requirements",
+            description: "Ensure your system has: 60GB+ storage space, 2GB RAM, stable internet connection with unlimited data, and ability to run 24/7."
+        },
+        {
+            title: "Download & Install",
+            description: "Download Analoge Doge from dogecoin.com or Github. Install like any standard application for your operating system (Windows, macOS, or Linux)."
+        },
+        {
+            title: "Initial Sync",
+            description: "Start Analoge Doge and wait for initial blockchain sync. This may take 24+ hours depending on your connection. The node downloads the complete blockchain history."
+        },
+        {
+            title: "Network Configuration",
+            description: "Open port 22556 in your router/firewall to allow incoming connections. This enables your node to fully participate in the Dogecoin network by accepting connections from other nodes."
+        }
+    ];
+
+    const terminalText = `The Dogecoin network is a peer-to-peer payment network consisting of thousands of computers called nodes. Each of these nodes is running specialized software. Analoge Doge, is the software more commonly used to run a Dogecoin node. It can be downloaded from the official Dogecoin.com website and directly from the Github repository.
+
+Running a full node is a service that volunteers in the network, called node operators, provide to the Dogecoin community.`;
+
+    useEffect(() => {
+        const updateData = () => {
+            setData(prev => prev.map(item => ({
+                ...item,
+                value: generateRandomValue(item.title),
+                change: (Math.random() * 10 - 5).toFixed(2)
+            })));
+        };
+
+        const interval = setInterval(updateData, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const generateRandomValue = (title) => {
+        switch(title) {
+            case 'Network Hash Rate':
+                return `${(Math.random() * 500 + 1000).toFixed(0)} TH/s`;
+            case 'Block Height':
+                return (Math.random() * 1000000 + 4000000).toFixed(0);
+            case 'Nodes Online':
+                return (Math.random() * 500 + 1000).toFixed(0);
+            case 'GPU Temp':
+                return `${(Math.random() * 15 + 65).toFixed(1)}°C`;
+            case 'Memory Usage':
+                return `${(Math.random() * 4 + 8).toFixed(1)} GB`;
+            case 'Avg Block Time':
+                return `${(Math.random() * 2 + 58).toFixed(1)}s`;
+            default:
+                return '0';
+        }
+    };
 
     return window.React.createElement(
         'div',
@@ -192,69 +256,65 @@ const TechWebsite = () => {
                         window.React.createElement('div', { className: "text-sm" },
                             window.React.createElement(TypewriterText, { text: "Analoge Coin ($ANAL) is our native SOL token designed to incentivize and reward node operators in the Dogecoin network. By integrating blockchain interoperability between Solana and Dogecoin networks, node operators can earn $ANAL tokens for maintaining network stability and providing essential infrastructure. This creates a sustainable ecosystem where network participants are directly rewarded for their contributions." })
                         ),
+                        
                         window.React.createElement('div', { className: "flex gap-4" }, [
-                            window.React.createElement('button',
-                                {
-                                    onClick: () => setShowTokenomics(!showTokenomics),
-                                    className: "mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors"
-                                },
-                                showTokenomics ? 'Hide Tokenomics' : 'Show Tokenomics'
-                            ),
-                            window.React.createElement('button',
-                                {
-                                    onClick: () => setShowBuyGuide(!showBuyGuide),
-                                    className: "mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors"
-                                },
-                                showBuyGuide ? 'Hide Guide' : 'How to Get Started'
-                            ),
-                            window.React.createElement('button',
-                                {
-                                    onClick: () => window.open('https://pump.fun', '_blank'),
-                                    className: "mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors"
-                                },
-                                'pump.fun'
-                            )
-                        ]),
-                        showTokenomics && window.React.createElement(TokenomicsCard),
-                        showBuyGuide && window.React.createElement(BuyGuide)
-                    ]),
-                    
-                    window.React.createElement('div', { className: "w-1/2 pr-8" },
-                        window.React.createElement('div', { className: "grid grid-cols-2 gap-4" },
-                            data.map((item, index) => 
-                                window.React.createElement(DataCard, { key: index, ...item })
-                            )
-                        )
-                    )
-                ]),
-
-                window.React.createElement('div', { className: "px-8" }, [
-                    window.React.createElement('h2', { className: "text-green-400 text-2xl font-mono mb-6 text-center" }, 'Run Your Own Node'),
-                    window.React.createElement('div', { className: "grid grid-cols-2 gap-6 max-w-5xl mx-auto" },
-                        steps.map((step, index) => 
-                            window.React.createElement(StepCard, {
-                                key: index,
-                                number: index + 1,
-                                title: step.title,
-                                description: step.description
-                            })
-                        )
-                    )
-                ]),
-
-                window.React.createElement('footer', { className: "border-t border-green-500/30 mt-16 py-6" },
-                    window.React.createElement('div', { className: "container mx-auto px-8 flex flex-col items-center gap-4" }, [
-                        window.React.createElement('div', { className: "flex gap-6" }, [
-                            window.React.createElement(SocialIcon, { name: "paper-plane", href: "https://t.me/analogedoge" }),
-                            window.React.createElement(SocialIcon, { name: "twitter", href: "https://x.com/Analogedogeapp" }),
-                            window.React.createElement(SocialIcon, { name: "github", href: "https://github.com/dogecoin/dogecoin/blob/master/doc/getting-started.md" }),
-                            window.React.createElement(SocialIcon, { name: "envelope", href: "mailto:contact@analogedoge.com" })
-                        ]),
-                        window.React.createElement('p', { className: "text-green-400 text-sm text-center" },
-                            '©2014-2025 | The Analoge Doge Project Supported by the Dogecoin Foundation. All rights reserved.'
-                        )
-                    ])
-                )
+   window.React.createElement('button',
+       {
+           onClick: () => setShowTokenomics(!showTokenomics),
+           className: "mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors"
+       },
+       showTokenomics ? 'Hide Tokenomics' : 'Show Tokenomics'
+   ),
+   window.React.createElement('button',
+       {
+           onClick: () => setShowBuyGuide(!showBuyGuide),
+           className: "mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors"
+       },
+       showBuyGuide ? 'Hide Guide' : 'How to Get Started'
+   ),
+   window.React.createElement('button',
+       {
+           onClick: () => window.open('https://pump.fun', '_blank'),
+           className: "mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors"
+       },
+       'pump.fun'
+   )
+]),
+showTokenomics && window.React.createElement(TokenomicsCard),
+showBuyGuide && window.React.createElement(BuyGuide),
+window.React.createElement('div', { className: "w-1/2 pr-8" },
+   window.React.createElement('div', { className: "grid grid-cols-2 gap-4" },
+       data.map((item, index) => 
+           window.React.createElement(DataCard, { key: index, ...item })
+       )
+   )
+),
+window.React.createElement('div', { className: "px-8" }, [
+   window.React.createElement('h2', { className: "text-green-400 text-2xl font-mono mb-6 text-center" }, 'Run Your Own Node'),
+   window.React.createElement('div', { className: "grid grid-cols-2 gap-6 max-w-5xl mx-auto" },
+       steps.map((step, index) => 
+           window.React.createElement(StepCard, {
+               key: index,
+               number: index + 1,
+               title: step.title,
+               description: step.description
+           })
+       )
+   )
+]),
+window.React.createElement('footer', { className: "border-t border-green-500/30 mt-16 py-6" },
+   window.React.createElement('div', { className: "container mx-auto px-8 flex flex-col items-center gap-4" }, [
+       window.React.createElement('div', { className: "flex gap-6" }, [
+           window.React.createElement(SocialIcon, { name: "paper-plane", href: "https://t.me/analogedoge" }),
+           window.React.createElement(SocialIcon, { name: "twitter", href: "https://x.com/Analogedogeapp" }),
+           window.React.createElement(SocialIcon, { name: "github", href: "https://github.com/dogecoin/dogecoin/blob/master/doc/getting-started.md" }),
+           window.React.createElement(SocialIcon, { name: "envelope", href: "mailto:contact@analogedoge.com" })
+       ]),
+       window.React.createElement('p', { className: "text-green-400 text-sm text-center" },
+           '©2014-2025 | The Analoge Doge Project Supported by the Dogecoin Foundation. All rights reserved.'
+       )
+   ])
+)
             ])
         ]
     );
