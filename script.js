@@ -85,17 +85,17 @@ const BuyGuide = () => window.React.createElement(
        window.React.createElement(BuyStepCard, {
            number: "1",
            title: "Connect Your Wallet",
-           description: "Install MetaMask, Trust Wallet, or Phantom. Add SOL to your wallet for the purchase and gas fees."
+           description: "Install MetaMask, Trust Wallet, or Phantom. Add ETH to your wallet for the purchase and gas fees."
        }),
        window.React.createElement(BuyStepCard, {
            number: "2",
-           title: "Visit Raydium",
-           description: "Go to raydium.io/swap. Connect your wallet and paste the $ANAL contract address (0x52056E377FC9699695ABBe83AFFE2269dDDC0493)."
+           title: "Visit Uniswap",
+           description: "Go to app.uniswap.org. Connect your wallet and paste the $ANAL contract address (0x52056E377FC9699695ABBe83AFFE2269dDDC0493)."
        }),
        window.React.createElement(BuyStepCard, {
            number: "3",
-           title: "Swap SOL for $ANAL",
-           description: "Enter the amount of SOL you want to swap. Set slippage to 5-10%. Click 'Swap' and confirm in your wallet."
+           title: "Swap ETH for $ANAL",
+           description: "Enter the amount of ETH you want to swap. Set slippage to 5-10%. Click 'Swap' and confirm in your wallet."
        })
    ]
 );
@@ -121,7 +121,7 @@ const TokenomicsCard = () => {
                    ]),
                    window.React.createElement('p', { className: "text-green-400" }, [
                        window.React.createElement('span', { className: "font-bold" }, 'Blockchain: '),
-                       'Solana'
+                       'Ethereum'
                    ]),
                    window.React.createElement('p', {
                        className: "text-green-400 cursor-pointer hover:text-green-300 transition-colors",
@@ -254,67 +254,64 @@ Running a full node is a service that volunteers in the network, called node ope
                         ),
                         window.React.createElement('h2', { className: "text-green-400 text-xl font-mono mb-4" }, 'What is Analoge Coin?'),
                         window.React.createElement('div', { className: "text-sm" },
-                            window.React.createElement(TypewriterText, { text: "Analoge Coin ($ANAL) is our native SOL token designed to incentivize and reward node operators in the Dogecoin network. By integrating blockchain interoperability between Solana and Dogecoin networks, node operators can earn $ANAL tokens for maintaining network stability and providing essential infrastructure. This creates a sustainable ecosystem where network participants are directly rewarded for their contributions." })
+                            window.React.createElement(TypewriterText, { text: "Analoge Coin ($ANAL) is our native ERC20 token designed to incentivize and reward node operators in the Dogecoin network. By integrating blockchain interoperability between Ethereum and Dogecoin networks, node operators can earn $ANAL tokens for maintaining network stability and providing essential infrastructure. This creates a sustainable ecosystem where network participants are directly rewarded for their contributions." })
                         ),
-                        
                         window.React.createElement('div', { className: "flex gap-4" }, [
-   window.React.createElement('button',
-       {
-           onClick: () => setShowTokenomics(!showTokenomics),
-           className: "mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors"
-       },
-       showTokenomics ? 'Hide Tokenomics' : 'Show Tokenomics'
-   ),
-   window.React.createElement('button',
-       {
-           onClick: () => setShowBuyGuide(!showBuyGuide),
-           className: "mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors"
-       },
-       showBuyGuide ? 'Hide Guide' : 'How to Get Started'
-   ),
-   window.React.createElement('button',
-       {
-           onClick: () => window.open('https://pump.fun', '_blank'),
-           className: "mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors"
-       },
-       'pump.fun'
-   )
-]),
-showTokenomics && window.React.createElement(TokenomicsCard),
-showBuyGuide && window.React.createElement(BuyGuide),
-window.React.createElement('div', { className: "w-1/2 pr-8" },
-   window.React.createElement('div', { className: "grid grid-cols-2 gap-4" },
-       data.map((item, index) => 
-           window.React.createElement(DataCard, { key: index, ...item })
-       )
-   )
-),
-window.React.createElement('div', { className: "px-8" }, [
-   window.React.createElement('h2', { className: "text-green-400 text-2xl font-mono mb-6 text-center" }, 'Run Your Own Node'),
-   window.React.createElement('div', { className: "grid grid-cols-2 gap-6 max-w-5xl mx-auto" },
-       steps.map((step, index) => 
-           window.React.createElement(StepCard, {
-               key: index,
-               number: index + 1,
-               title: step.title,
-               description: step.description
-           })
-       )
-   )
-]),
-window.React.createElement('footer', { className: "border-t border-green-500/30 mt-16 py-6" },
-   window.React.createElement('div', { className: "container mx-auto px-8 flex flex-col items-center gap-4" }, [
-       window.React.createElement('div', { className: "flex gap-6" }, [
-           window.React.createElement(SocialIcon, { name: "paper-plane", href: "https://t.me/analogedoge" }),
-           window.React.createElement(SocialIcon, { name: "twitter", href: "https://x.com/Analogedogeapp" }),
-           window.React.createElement(SocialIcon, { name: "github", href: "https://github.com/dogecoin/dogecoin/blob/master/doc/getting-started.md" }),
-           window.React.createElement(SocialIcon, { name: "envelope", href: "mailto:contact@analogedoge.com" })
-       ]),
-       window.React.createElement('p', { className: "text-green-400 text-sm text-center" },
-           '©2014-2025 | The Analoge Doge Project Supported by the Dogecoin Foundation. All rights reserved.'
-       )
-   ])
-)
+                            window.React.createElement('button',
+                                {
+                                    onClick: () => setShowTokenomics(!showTokenomics),
+                                    className: "mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors"
+                                },
+                                showTokenomics ? 'Hide Tokenomics' : 'Show Tokenomics'
+                            ),
+                            window.React.createElement('button',
+                                {
+                                    onClick: () => setShowBuyGuide(!showBuyGuide),
+                                    className: "mt-4 text-green-400 border border-green-500/30 px-4 py-2 rounded-lg bg-green-500/10 hover:bg-green-500/10 transition-colors"
+                                },
+                                showBuyGuide ? 'Hide Guide' : 'How to Get Started'
+                            )
+                        ]),
+                        showTokenomics && window.React.createElement(TokenomicsCard),
+                        showBuyGuide && window.React.createElement(BuyGuide)
+                    ]),
+                    
+                    window.React.createElement('div', { className: "w-1/2 pr-8" },
+                        window.React.createElement('div', { className: "grid grid-cols-2 gap-4" },
+                            data.map((item, index) => 
+                                window.React.createElement(DataCard, { key: index, ...item })
+                            )
+                        )
+                    )
+                ]),
+
+                window.React.createElement('div', { className: "px-8" }, [
+                    window.React.createElement('h2', { className: "text-green-400 text-2xl font-mono mb-6 text-center" }, 'Run Your Own Node'),
+                    window.React.createElement('div', { className: "grid grid-cols-2 gap-6 max-w-5xl mx-auto" },
+                        steps.map((step, index) => 
+                            window.React.createElement(StepCard, {
+                                key: index,
+                                number: index + 1,
+                                title: step.title,
+                                description: step.description
+                            })
+                        )
+                    )
+                ]),
+
+                window.React.createElement('footer', { className: "border-t border-green-500/30 mt-16 py-6" },
+                    window.React.createElement('div', { className: "container mx-auto px-8 flex flex-col items-center gap-4" }, [
+                        window.React.createElement('div', { className: "flex gap-6" }, [
+                            window.React.createElement(SocialIcon, { name: "paper-plane", href: "https://t.me/analogedoge" }),
+                            window.React.createElement(SocialIcon, { name: "twitter", href: "https://x.com/Analogedogeapp" }),
+                            window.React.createElement(SocialIcon, { name: "github", href: "https://github.com/dogecoin/dogecoin/blob/master/doc/getting-started.md" }),
+                            window.React.createElement(SocialIcon, { name: "envelope", href: "mailto:contact@analogedoge.com" })
+                        ]),
+                        window.React.createElement('p', { className: "text-green-400 text-sm text-center" },
+                            '©2014-2025 | The Analoge Doge Project Supported by the Dogecoin Foundation. All rights reserved.'
+                        )
+                    ])
+                )
             ])
         ]
     );
