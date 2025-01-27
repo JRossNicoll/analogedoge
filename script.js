@@ -40,10 +40,10 @@ const SocialIcon = ({ name, href }) => window.React.createElement(
         href: href,
         target: "_blank",
         rel: "noopener noreferrer",
-        className: "bg-black/60 backdrop-blur-sm border-2 border-green-500/30 rounded-lg p-2 hover:bg-green-500/10 transition-all"
+        className: "bg-black/60 backdrop-blur-sm border border-green-500/30 rounded-lg p-2 hover:bg-green-500/10 transition-all"
     },
     window.React.createElement('i', {
-        className: `${name === 'envelope' ? 'fa-solid' : 'fa-brands'} fa-${name === 'paper-plane' ? 'telegram' : name} text-green-400`,
+        className: `${name === 'envelope' ? 'fa-solid' : 'fa-brands'} fa-${name === 'paper-plane' ? 'telegram' : name} text-green-400 border border-green-500/30`,
         style: { width: '20px', height: '20px' }
     })
 );
