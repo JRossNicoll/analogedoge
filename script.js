@@ -90,7 +90,7 @@ const BuyGuide = () => window.React.createElement(
        window.React.createElement(BuyStepCard, {
            number: "2",
            title: "Visit Uniswap",
-           description: "Go to app.uniswap.org. Connect your wallet and paste the $ANAL contract address (0x52056E377FC9699695ABBe83AFFE2269dDDC0493)."
+           description: "Go to app.uniswap.org. Connect your wallet and paste the $ANAL contract address (CrpWqQi82g5WvbyVHGFXorZsxWHjP4TNPFUhEUYUpump)."
        }),
        window.React.createElement(BuyStepCard, {
            number: "3",
@@ -125,7 +125,7 @@ const TokenomicsCard = () => {
                    ]),
                    window.React.createElement('p', {
                        className: "text-green-400 cursor-pointer hover:text-green-300 transition-colors",
-                       onClick: () => copyToClipboard("0x52056E377FC9699695ABBe83AFFE2269dDDC0493"),
+                       onClick: () => copyToClipboard("CrpWqQi82g5WvbyVHGFXorZsxWHjP4TNPFUhEUYUpump"),
                        title: "Click to copy"
                    }, [
                        window.React.createElement('span', { className: "font-bold" }, 'Contract: (Click to Copy): '),
@@ -144,7 +144,7 @@ const TokenomicsCard = () => {
                    window.React.createElement('p', { className: "text-green-400 text-sm" }, '(Then will become 0%)'),
                    window.React.createElement('p', {
                        className: "text-green-400 cursor-pointer hover:text-green-300 transition-colors",
-                       onClick: () => copyToClipboard("0x52056E377FC9699695ABBe83AFFE2269dDDC0493"),
+                       onClick: () => copyToClipboard("CrpWqQi82g5WvbyVHGFXorZsxWHjP4TNPFUhEUYUpump"),
                        title: "Click to copy"
                    }, [
                        window.React.createElement('span', { className: "font-bold" }, 'Pair: '),
@@ -254,7 +254,7 @@ Running a full node is a service that volunteers in the network, called node ope
                         ),
                         window.React.createElement('h2', { className: "text-green-400 text-xl font-mono mb-4" }, 'What is Analoge Coin?'),
                         window.React.createElement('div', { className: "text-sm" },
-                            window.React.createElement(TypewriterText, { text: "Analoge Coin ($ANAL) is our native SOL token designed to incentivize and reward node operators in the Dogecoin network. By integrating blockchain interoperability between Solana and Dogecoin networks, node operators can earn $ANAL tokens for maintaining network stability and providing essential infrastructure. This creates a sustainable ecosystem where network participants are directly rewarded for their contributions." })
+                            window.React.createElement(TypewriterText, { text: "Analoge Coin ($ANAL) is our native SOL (CrpWqQi82g5WvbyVHGFXorZsxWHjP4TNPFUhEUYUpump) token designed to incentivize and reward node operators in the Dogecoin network. By integrating blockchain interoperability between Solana and Dogecoin networks, node operators can earn $ANAL tokens for maintaining network stability and providing essential infrastructure. This creates a sustainable ecosystem where network participants are directly rewarded for their contributions." })
                         ),
                         window.React.createElement('div', { className: "flex gap-4" }, [
                             window.React.createElement('button',
