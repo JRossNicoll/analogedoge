@@ -129,7 +129,7 @@ const TokenomicsCard = () => {
                        title: "Click to copy"
                    }, [
                        window.React.createElement('span', { className: "font-bold" }, 'Contract: (Click to Copy): '),
-                       '0x520...0493'
+                       'CrpWqQi82g5WvbyVHGFXorZsxWHjP4TNPFUhEUYUpump'
                    ])
                ]),
                window.React.createElement('div', { className: "space-y-2" }, [
@@ -148,7 +148,7 @@ const TokenomicsCard = () => {
                        title: "Click to copy"
                    }, [
                        window.React.createElement('span', { className: "font-bold" }, 'Pair: '),
-                       '0x520...0493'
+                       'CrpWqQi82g5WvbyVHGFXorZsxWHjP4TNPFUhEUYUpump'
                    ])
                ])
            ]),
